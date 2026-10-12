@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareerPath AI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #234e70;
+        }
+
+        p {
+            color: #444444;
+            font-size: 18px;
+        }
+        form {
+    background-color: white;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #234e70;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #163750;
+}
+    </style>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 30px 15px;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #e0e7ff, #f5f3ff, #dbeafe);
+        color: #1e293b;
+        min-height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        color: #4338ca;
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    body > p {
+        text-align: center;
+        color: #475569;
+        font-size: 16px;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+    }
+
+    label {
+        display: block;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #334155;
+    }
+
+    select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        background: #f8fafc;
+        font-size: 15px;
+    }
+
+    select:focus {
+        outline: 2px solid #818cf8;
+        border-color: #6366f1;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px;
+        border: none;
+        border-radius: 9px;
+        background: #4f46e5;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    button:hover {
+        background: #3730a3;
+    }
+
+    #roadmap {
+        max-width: 600px;
+        margin: 25px auto;
+        padding: 25px;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        line-height: 1.8;
+    }
+
+    #roadmap h3 {
+        color: #4338ca;
+    }
+
+    #roadmap p {
+        padding: 10px;
+        margin: 10px 0;
+        background: #eef2ff;
+        border-left: 4px solid #6366f1;
+        border-radius: 5px;
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 28px;
+        }
+
+        form {
+            padding: 20px;
+        }
+    }
+</style>  
+</head>
+
+<body>
+
+    <h1>CareerPath AI</h1>
+
+<p>Build your personalized career roadmap.</p>
+
+<form>
+
+    <label>Education:</label>
+    <select>
+        <option>BTech / Engineering</option>
+        <option>BCA</option>
+        <option>BSc</option>
+        <option>Other</option>
+    </select>
+
+    <br><br>
+
+    <label>Target Career:</label>
+    <select>
+        <option>AI Engineer</option>
+        <option>Data Scientist</option>
+        <option>Data Analyst</option>
+        <option>Web Developer</option>
+        <option>Python Developer</option>
+    </select>
+
+    <br><br>
+
+    <label>Current Skill Level:</label>
+    <select>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+    </select>
+
+    <br><br>
+
+    <label>Study Hours Per Week:</label>
+    <input type="number" min="1" max="40">
+
+    <br><br>
+
+    <button type="button">Generate My Roadmap</button>
+
+</form>
+<button type="button" onclick="generateRoadmap()">
+    Test AI Backend Connection
+</button>
+<h2>Your Career Roadmap</h2>
+<div id="roadmap">
+    <div id="backendResult"></div>
+
+<p>Step 1: Learn Python</p>
+<p>Step 2: Learn Mathematics and Statistics</p>
+<p>Step 3: Learn Machine Learning</p>
+<p>Step 4: Build AI Projects</p>
+<p>Step 5: Prepare for AI Engineer Jobs</p>
+</div>
+
+<script>
+document.querySelector("button").addEventListener("click", function() {
+    const career = document.querySelectorAll("select")[1].value;
+
+    let roadmap = "";
+
+    if (career === "AI Engineer") {
+    roadmap = `
+        <h3>🤖 AI Engineer Career Roadmap</h3>
+
+        <h4>Phase 1: Python Programming</h4>
+        <p>Learn variables, loops, functions, lists, dictionaries, and OOP.</p>
+        <p><strong>Project:</strong> Build a calculator or quiz application.</p>
+        <p><strong>Resource:</strong> CodeWithHarry Python tutorials on YouTube.</p>
+
+        <h4>Phase 2: Mathematics and Statistics</h4>
+        <p>Study linear algebra, probability, statistics, and basic calculus.</p>
+        <p><strong>Project:</strong> Analyse a small dataset using Python.</p>
+
+        <h4>Phase 3: Data Analysis</h4>
+        <p>Learn NumPy, Pandas, Matplotlib, and data cleaning.</p>
+        <p><strong>Project:</strong> Create a data analysis report.</p>
+
+        <h4>Phase 4: Machine Learning</h4>
+        <p>Learn regression, classification, model evaluation, and scikit-learn.</p>
+        <p><strong>Project:</strong> Build a student performance prediction model.</p>
+
+        <h4>Phase 5: Deep Learning and AI</h4>
+        <p>Understand neural networks and explore PyTorch or TensorFlow.</p>
+        <p><strong>Project:</strong> Build an image classification application.</p>
+
+        <h4>Phase 6: Portfolio and Deployment</h4>
+        <p>Upload your projects to GitHub and learn to deploy an application.</p>
+        <p><strong>Goal:</strong> Prepare for AI internships and entry-level roles.</p>
+    `;
+} 
+    else if (career === "Web Developer") {
+    roadmap = `
+        <h3>🌐 Web Developer Career Roadmap</h3>
+
+        <h4>Phase 1: HTML</h4>
+        <p>Learn headings, paragraphs, links, images, forms, and semantic HTML.</p>
+        <p><strong>Project:</strong> Build a personal introduction webpage.</p>
+        <p><strong>Resource:</strong> CodeWithHarry HTML tutorials on YouTube.</p>
+
+        <h4>Phase 2: CSS</h4>
+        <p>Learn selectors, colors, layouts, Flexbox, Grid, and responsive design.</p>
+        <p><strong>Project:</strong> Create a responsive personal portfolio.</p>
+
+        <h4>Phase 3: JavaScript</h4>
+        <p>Learn variables, functions, arrays, objects, events, and DOM manipulation.</p>
+        <p><strong>Project:</strong> Build an interactive to-do list.</p>
+
+        <h4>Phase 4: Git and GitHub</h4>
+        <p>Learn version control and how to upload projects to GitHub.</p>
+        <p><strong>Project:</strong> Publish your portfolio code on GitHub.</p>
+
+        <h4>Phase 5: Frontend Framework</h4>
+        <p>Learn React after becoming comfortable with JavaScript.</p>
+        <p><strong>Project:</strong> Build a weather dashboard or task manager.</p>
+
+        <h4>Phase 6: Deployment and Portfolio</h4>
+        <p>Learn how to deploy websites and make them accessible online.</p>
+        <p><strong>Goal:</strong> Prepare for web development internships and entry-level roles.</p>
+    `;
+}
+else if (career === "Python Developer") {
+    roadmap = `
+        <h3>🐍 Python Developer Career Roadmap</h3>
+
+        <h4>Phase 1: Python Fundamentals</h4>
+        <p>Learn variables, data types, loops, conditions, and functions.</p>
+        <p><strong>Project:</strong> Build a calculator application.</p>
+        <p><strong>Resource:</strong> CodeWithHarry Python tutorials on YouTube.</p>
+
+        <h4>Phase 2: Intermediate Python</h4>
+        <p>Learn lists, dictionaries, file handling, exceptions, and modules.</p>
+        <p><strong>Project:</strong> Create a student record management system.</p>
+
+        <h4>Phase 3: Object-Oriented Programming</h4>
+        <p>Learn classes, objects, inheritance, and encapsulation.</p>
+        <p><strong>Project:</strong> Build a library management application.</p>
+
+        <h4>Phase 4: Databases and APIs</h4>
+        <p>Learn SQL, database operations, HTTP, and working with APIs.</p>
+        <p><strong>Project:</strong> Create an application that retrieves data from an API.</p>
+
+        <h4>Phase 5: Python Frameworks</h4>
+        <p>Explore Flask or Django to develop web applications.</p>
+        <p><strong>Project:</strong> Build a simple task management website.</p>
+
+        <h4>Phase 6: GitHub and Portfolio</h4>
+        <p>Practise debugging, testing, Git, and GitHub.</p>
+        <p><strong>Project:</strong> Upload your best projects to GitHub.</p>
+        <p><strong>Goal:</strong> Prepare for Python development internships and entry-level roles.</p>
+    `;
+}
+else if (career === "Data Analyst") {
+    roadmap = `
+        <h3>📊 Data Analyst Career Roadmap</h3>
+
+        <h4>Phase 1: Excel</h4>
+        <p>Learn formulas, sorting, filtering, charts, and pivot tables.</p>
+        <p><strong>Project:</strong> Analyse monthly sales data in Excel.</p>
+
+        <h4>Phase 2: SQL</h4>
+        <p>Learn SELECT, WHERE, GROUP BY, JOIN, and aggregate functions.</p>
+        <p><strong>Project:</strong> Answer business questions using a sample database.</p>
+
+        <h4>Phase 3: Python for Data Analysis</h4>
+        <p>Learn Python basics, NumPy, and Pandas.</p>
+        <p><strong>Project:</strong> Clean and analyse a dataset using Python.</p>
+        <p><strong>Resource:</strong> CodeWithHarry Python tutorials on YouTube.</p>
+
+        <h4>Phase 4: Statistics</h4>
+        <p>Learn averages, distributions, probability, correlation, and sampling.</p>
+        <p><strong>Project:</strong> Summarise trends in a real-world dataset.</p>
+
+        <h4>Phase 5: Data Visualization</h4>
+        <p>Learn charts and dashboards using Power BI or Tableau.</p>
+        <p><strong>Project:</strong> Build an interactive sales dashboard.</p>
+
+        <h4>Phase 6: Portfolio and Job Preparation</h4>
+        <p>Practise explaining insights and documenting your analysis.</p>
+        <p><strong>Project:</strong> Publish three data analysis projects on GitHub.</p>
+        <p><strong>Goal:</strong> Prepare for Data Analyst internships and entry-level roles.</p>
+    `;
+}
+else if (career === "Data Scientist") {
+    roadmap = `
+        <h3>📈 Data Scientist Career Roadmap</h3>
+
+        <h4>Phase 1: Python Programming</h4>
+        <p>Learn variables, loops, functions, data structures, and OOP.</p>
+        <p><strong>Project:</strong> Build a Python application.</p>
+        <p><strong>Resource:</strong> CodeWithHarry Python tutorials on YouTube.</p>
+
+        <h4>Phase 2: Mathematics and Statistics</h4>
+        <p>Learn probability, descriptive statistics, distributions, and linear algebra.</p>
+        <p><strong>Project:</strong> Analyse patterns in a dataset.</p>
+
+        <h4>Phase 3: Data Analysis</h4>
+        <p>Learn NumPy, Pandas, data cleaning, and exploratory data analysis.</p>
+        <p><strong>Project:</strong> Explore a dataset and present your findings.</p>
+
+        <h4>Phase 4: Data Visualization and SQL</h4>
+        <p>Learn SQL queries, Matplotlib, Seaborn, and data storytelling.</p>
+        <p><strong>Project:</strong> Create a data visualization report.</p>
+
+        <h4>Phase 5: Machine Learning</h4>
+        <p>Learn regression, classification, clustering, and model evaluation.</p>
+        <p><strong>Project:</strong> Build a house-price prediction model using sample data.</p>
+
+        <h4>Phase 6: Advanced Projects and Portfolio</h4>
+        <p>Explore feature engineering, model improvement, and deployment basics.</p>
+        <p><strong>Project:</strong> Complete an end-to-end data science project.</p>
+        <p><strong>Goal:</strong> Prepare for Data Science internships and entry-level opportunities.</p>
+    `;
+}
+else {
+        roadmap = `
+            <h3>Your Career Roadmap</h3>
+            <p>Step 1: Learn the fundamentals of your chosen career.</p>
+            <p>Step 2: Practise essential skills.</p>
+            <p>Step 3: Build projects related to your career.</p>
+            <p>Step 4: Create a portfolio.</p>
+            <p>Step 5: Prepare for job opportunities.</p>
+        `;
+    }
+
+    document.getElementById("roadmap").innerHTML = roadmap;
+});
+async function testBackend() {
+    try {
+        const response = await fetch(
+            "http://127.0.0.1:5000/generate-roadmap",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+    education: document.querySelectorAll("select")[0].value,
+    career: document.querySelectorAll("select")[1].value,
+    skill_level: document.querySelectorAll("select")[2].value
+})
+            }
+        );
+
+        const data = await response.json();
+
+        const roadmapItems = Array.isArray(data.roadmap)
+    ? data.roadmap.map(item => `<li>${item}</li>`).join("")
+    : "<li>No roadmap returned.</li>";
+
+document.getElementById("backendResult").innerHTML =
+    "<h3>Python-Generated Roadmap</h3>" +
+    "<p><strong>Education:</strong> " + data.education + "</p>" +
+    "<p><strong>Career:</strong> " + data.career + "</p>" +
+    "<p><strong>Skill Level:</strong> " + data.skill_level + "</p>" +
+    "<h4>Your Learning Phases</h4><ol>" + roadmapItems + "</ol>";
+
+    } catch (error) {
+    alert("Error: " + error.message);
+    console.error("Backend connection error:", error);
+}
+}
+async function generateRoadmap() {
+    await testBackend();
+}
+</script>
+</body>
+</html>
